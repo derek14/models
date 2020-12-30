@@ -33,17 +33,17 @@ handle_exit_code() {
   fi
 }
 
-install_tensorflow() {
-  # Install TensorFlow 2.2.
-  echo "Installing TensorFlow 2.2"
-  pip3 install --upgrade tensorflow==2.2.0
-  local exit_code=$?
-  handle_exit_code ${exit_code} "Unable to install Tensorflow 2.2."
-  echo "Installing TensorFlow 2.2 for GPU"
-  pip3 install --upgrade tensorflow-gpu==2.2.0
-  local exit_code=$?
-  handle_exit_code ${exit_code} "Unable to install Tensorflow for GPU 2.2.0."
-}
+# install_tensorflow() {
+#   # Install TensorFlow 2.2.
+#   echo "Installing TensorFlow 2.2"
+#   pip3 install --upgrade tensorflow==2.2.0
+#   local exit_code=$?
+#   handle_exit_code ${exit_code} "Unable to install Tensorflow 2.2."
+#   echo "Installing TensorFlow 2.2 for GPU"
+#   pip3 install --upgrade tensorflow-gpu==2.2.0
+#   local exit_code=$?
+#   handle_exit_code ${exit_code} "Unable to install Tensorflow for GPU 2.2.0."
+# }
 
 install_tf_slim() {
   # Install TF-Slim from source.
@@ -98,9 +98,9 @@ install_python_libraries() {
   pip3 install matplotlib numpy scikit-image scipy
   local exit_code=$?
   handle_exit_code ${exit_code} "Unable to install at least one of: matplotlib numpy scikit-image scipy."
-  sudo apt-get -y install python3-tk
-  local exit_code=$?
-  handle_exit_code ${exit_code} "Unable to install python3-tk."
+#   sudo apt-get -y install python3-tk
+#   local exit_code=$?
+#   handle_exit_code ${exit_code} "Unable to install python3-tk."
 }
 
 install_object_detection() {
@@ -137,7 +137,7 @@ post_install_check() {
 
 install_delf() {
   # Orchestrates DELF package installation.
-  install_tensorflow
+#   install_tensorflow
   install_tf_slim
   download_protoc
   compile_delf_protos

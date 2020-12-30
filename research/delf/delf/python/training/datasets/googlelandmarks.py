@@ -148,9 +148,7 @@ def CreateDataset(file_pattern,
   Returns:
      tf.data.TFRecordDataset.
   """
-
-  filenames = tf.io.gfile.glob(file_pattern)
-
+  filenames = tf.data.Dataset.list_files(file_pattern)
   dataset = tf.data.TFRecordDataset(filenames)
   dataset = dataset.repeat().shuffle(buffer_size=100, seed=seed)
 
