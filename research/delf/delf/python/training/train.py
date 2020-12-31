@@ -192,7 +192,7 @@ def main(argv):
   num_eval_batches = int(50000 / global_batch_size)
   report_interval = 100
   eval_interval = 1000
-  save_interval = 500
+  save_interval = 1000
 
   initial_lr = FLAGS.initial_lr
 
